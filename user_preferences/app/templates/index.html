@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Preferences</title>
+</head>
+<body>
+
+<h2>Gestionnaire de préférences</h2>
+
+<input id="user" placeholder="Username">
+
+<h3>Options</h3>
+
+<label>
+<input type="checkbox" id="email_notifications">
+Email notifications
+</label>
+
+<br>
+
+<label>
+<input type="checkbox" id="dark_mode">
+Dark mode
+</label>
+
+<br>
+
+<label>
+<input type="checkbox" id="marketing_emails">
+Marketing emails
+</label>
+
+<br><br>
+
+<button onclick="savePreferences()">Save</button>
+
+<script>
+
+async function savePreferences() {
+
+const user = document.getElementById("user").value
+
+const data = {
+user: user,
+email_notifications: document.getElementById("email_notifications").checked,
+dark_mode: document.getElementById("dark_mode").checked,
+marketing_emails: document.getElementById("marketing_emails").checked
+}
+
+await fetch("preferences", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify(data)
+})
+
+alert("Preferences saved")
+
+}
+
+</script>
+
+</body>
+</html>

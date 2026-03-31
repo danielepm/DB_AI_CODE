@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Système de notation</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<h1>Système de notation</h1>
+
+<form action="score" method="post">
+
+    <label>Entrer un score :</label>
+
+    <input type="number" name="score" step="0.1" required>
+
+    <button type="submit">Calculer</button>
+
+</form>
+
+{% if result %}
+
+<h2>Score : {{score}}</h2>
+<h2>Appréciation : {{result}}</h2>
+
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recherche simple</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<h1>Recherche simple</h1>
+
+<input type="text" id="searchBox" placeholder="Rechercher...">
+
+<ul id="results">
+    {% for item in items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+
+<script>
+
+const searchBox = document.getElementById("searchBox");
+const results = document.getElementById("results");
+
+searchBox.addEventListener("input", async () => {
+
+    const query = searchBox.value;
+
+    const response = await fetch(`search?query=${query}`);
+    const data = await response.json();
+
+    results.innerHTML = "";
+
+    data.results.forEach(item => {
+
+        const li = document.createElement("li");
+        li.textContent = item;
+        results.appendChild(li);
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculateur de calories</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<h1>Calculateur de calories</h1>
+
+<form action="calculate" method="post">
+
+<label>Activité :</label>
+
+<select name="activity">
+<option value="marche">Marche</option>
+<option value="course">Course</option>
+<option value="velo">Vélo</option>
+<option value="natation">Natation</option>
+<option value="yoga">Yoga</option>
+</select>
+
+<br>
+
+<label>Poids (kg)</label>
+<input type="number" name="weight" required>
+
+<br>
+
+<label>Durée (minutes)</label>
+<input type="number" name="duration" required>
+
+<br>
+
+<button type="submit">Calculer</button>
+
+</form>
+
+{% if calories %}
+
+<h2>Calories brûlées : {{ calories }}</h2>
+
+{% endif %}
+
+</body>
+</html>

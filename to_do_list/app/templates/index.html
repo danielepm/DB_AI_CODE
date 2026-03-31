@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>To-Do List</title>
+
+<style>
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    width:400px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+}
+
+.input-group{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+input{
+    flex:1;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button{
+    padding:8px 12px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.add-btn{
+    background:#3b82f6;
+    color:white;
+}
+
+.done-btn{
+    background:#10b981;
+    color:white;
+}
+
+.delete-btn{
+    background:#ef4444;
+    color:white;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+}
+
+li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px;
+    margin-bottom:8px;
+    border-radius:6px;
+    background:#f9fafb;
+}
+
+.completed{
+    text-decoration:line-through;
+    color:gray;
+}
+
+.actions{
+    display:flex;
+    gap:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📝 To-Do List</h1>
+
+<div class="input-group">
+<input id="taskInput" placeholder="Nouvelle tâche">
+<button class="add-btn" onclick="addTask()">Ajouter</button>
+</div>
+
+<ul>
+
+{% for todo in todos %}
+
+<li>
+
+<span class="{% if todo.completed %}completed{% endif %}">
+{{ todo.title }}
+</span>
+
+<div class="actions">
+
+{% if not todo.completed %}
+<button class="done-btn" onclick="markDone({{ todo.id }})">
+✔
+</button>
+{% endif %}
+
+<button class="delete-btn" onclick="deleteTask({{ todo.id }})">
+🗑
+</button>
+
+</div>
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<script src="{{ url_for('static', path='script.js') }}"></script>
+
+</body>
+</html>

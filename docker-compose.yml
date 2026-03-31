@@ -1,0 +1,197 @@
+version: "3.9"
+
+services:
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - calculatrice
+      - convertisseur_unites
+      - gestionnaire_contacts
+      - currency_converter
+      - to_do_list
+      - compteur_mots
+      - imc_calculator
+      - calculateur_moyenne
+      - simulateur_pret
+      - password_generator
+      - age_calculator
+      - calculateur_tva
+      - livraison_app
+      - calculateur_remise
+      - calorie_calculator
+      - simulateur_notes
+      - gestion_produits
+      - gestion_livres
+      - gestion_rendezvous
+      - gestion_tickets
+      - carnet_adresses
+      - quiz_app
+      - traffic_light
+      - password_checker
+      - calculateur_priorite
+      - systeme_notation
+      - contact_form
+      - recherche_simple
+      - feedback_system
+      - tableau_scores
+      - user_preferences
+
+  calculatrice:
+    build: ./calculatrice
+    expose:
+      - "8000"
+
+  convertisseur_unites:
+    build: ./convertisseur_unites
+    expose:
+      - "8000"
+
+  gestionnaire_contacts:
+    build: ./gestionnaire_contacts
+    expose:
+      - "8000"
+
+  currency_converter:
+    build: ./currency_converter
+    expose:
+      - "8000"
+
+  to_do_list:
+    build: ./to_do_list
+    expose:
+      - "8000"
+
+  compteur_mots:
+    build: ./compteur_mots
+    expose:
+      - "8000"
+
+  imc_calculator:
+    build: ./imc_calculator
+    expose:
+      - "8000"
+
+  calculateur_moyenne:
+    build: ./calculateur_moyenne
+    expose:
+      - "8000"
+
+  simulateur_pret:
+    build: ./simulateur_pret
+    expose:
+      - "8000"
+
+  password_generator:
+    build: ./password_generator
+    expose:
+      - "8000"
+
+  age_calculator:
+    build: ./age_calculator
+    expose:
+      - "8000"
+
+  calculateur_tva:
+    build: ./calculateur_tva
+    expose:
+      - "8000"
+
+  livraison_app:
+    build: ./livraison_app
+    expose:
+      - "8000"
+
+  calculateur_remise:
+    build: ./calculateur_remise
+    expose:
+      - "8000"
+
+  calorie_calculator:
+    build: ./calorie_calculator
+    expose:
+      - "8000"
+
+  simulateur_notes:
+    build: ./simulateur_notes
+    expose:
+      - "8000"
+
+  gestion_produits:
+    build: ./gestion_produits
+    expose:
+      - "8000"
+
+  gestion_livres:
+    build: ./gestion_livres
+    expose:
+      - "8000"
+
+  gestion_rendezvous:
+    build: ./gestion_rendezvous
+    expose:
+      - "8000"
+
+  gestion_tickets:
+    build: ./gestion_tickets
+    expose:
+      - "8000"
+
+  carnet_adresses:
+    build: ./carnet_adresses
+    expose:
+      - "8000"
+
+  quiz_app:
+    build: ./quiz_app
+    expose:
+      - "8000"
+
+  traffic_light:
+    build: ./traffic_light
+    expose:
+      - "8000"
+
+  password_checker:
+    build: ./password_checker
+    expose:
+      - "8000"
+
+  calculateur_priorite:
+    build: ./calculateur_priorite
+    expose:
+      - "8000"
+
+  systeme_notation:
+    build: ./systeme_notation
+    expose:
+      - "8000"
+
+  contact_form:
+    build: ./contact_form
+    expose:
+      - "8000"
+
+  recherche_simple:
+    build: ./recherche_simple
+    expose:
+      - "8000"
+
+  feedback_system:
+    build: ./feedback_system
+    expose:
+      - "8000"
+
+  tableau_scores:
+    build: ./tableau_scores
+    expose:
+      - "8000"
+
+  user_preferences:
+    build: ./user_preferences
+    expose:
+      - "8000"
+
+  

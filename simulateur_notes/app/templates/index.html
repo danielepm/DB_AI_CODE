@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulateur de notes</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+<h1>Simulateur de notes scolaires</h1>
+
+<form action="simuler" method="post">
+
+    <label>Note 1</label>
+    <input type="number" step="0.1" name="note1" required>
+
+    <label>Note 2</label>
+    <input type="number" step="0.1" name="note2" required>
+
+    <label>Note 3</label>
+    <input type="number" step="0.1" name="note3" required>
+
+    <button type="submit">Simuler</button>
+
+</form>
+
+{% if resultat %}
+<hr>
+
+<h2>Résultat</h2>
+
+<p>Moyenne : {{ resultat.moyenne }}</p>
+<p>Statut : <b>{{ resultat.statut }}</b></p>
+
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from app.routes import router
+
+app = FastAPI(root_path="/systeme_notation", title="Système de notation")
+
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+templates = Jinja2Templates(directory="app/templates")
+
+app.include_router(router)

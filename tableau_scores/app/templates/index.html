@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de scores</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Tableau de scores</h1>
+
+    <form action="add" method="post">
+        <input type="text" name="player" placeholder="Nom du joueur" required>
+        <input type="number" name="points" placeholder="Score" required>
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <h2>Classement</h2>
+
+    <ul>
+        {% for score in scores %}
+        <li>
+            {{ score.player }}
+            <span>{{ score.points }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compteur de mots</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<h1>Compteur de mots</h1>
+
+<form action="analyze" method="post">
+
+<textarea name="text" rows="10" cols="60">
+{{ text if text else "" }}
+</textarea>
+
+<br><br>
+
+<button type="submit">Analyser</button>
+
+</form>
+
+{% if result %}
+
+<h2>Résultats</h2>
+
+<p>Mots : {{ result.word_count }}</p>
+<p>Caractères : {{ result.char_count }}</p>
+<p>Phrases : {{ result.sentence_count }}</p>
+
+<h3>Mots les plus fréquents</h3>
+
+<ul>
+{% for word, count in result.frequency %}
+<li>{{word}} : {{count}}</li>
+{% endfor %}
+</ul>
+
+{% endif %}
+
+</body>
+</html>

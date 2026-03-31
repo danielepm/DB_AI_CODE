@@ -1,0 +1,77 @@
+*** Settings ***
+Documentation     Tests automatisés fonctionnels pour l'application Calculatrice
+Library           SeleniumLibrary
+Suite Setup       Ouvrir le navigateur
+Suite Teardown    Fermer le navigateur
+
+*** Variables ***
+${BASE_URL}        http://localhost
+${BROWSER}         chrome
+
+*** Test Cases ***
+FT-01 Accès à l'application
+    [Documentation]    Vérifier que la page d'accueil est accessible
+    Go To    ${BASE_URL}
+    Page Should Contain    Calculatrice
+
+FT-02 Saisie valide des opérandes
+    [Documentation]    Vérifier la saisie de deux nombres valides
+    Go To    ${BASE_URL}
+    Input Text    id=a    10
+    Input Text    id=b    5
+    Page Should Contain Element    id=a
+    Page Should Contain Element    id=b
+
+FT-03 Addition de deux nombres
+    [Documentation]    Vérifier le calcul de l'addition
+    Go To    ${BASE_URL}
+    Input Text    id=a    10
+    Input Text    id=b    5
+    Click Button    xpath=//button[text()='+']
+    Page Should Contain    Résultat : 15
+
+FT-04 Soustraction de deux nombres
+    [Documentation]    Vérifier le calcul de la soustraction
+    Go To    ${BASE_URL}
+    Input Text    id=a    10
+    Input Text    id=b    5
+    Click Button    xpath=//button[text()='−']
+    Page Should Contain    Résultat : 5
+
+FT-05 Multiplication de deux nombres
+    [Documentation]    Vérifier le calcul de la multiplication
+    Go To    ${BASE_URL}
+    Input Text    id=a    4
+    Input Text    id=b    3
+    Click Button    xpath=//button[text()='×']
+    Page Should Contain    Résultat : 12
+
+FT-06 Division de deux nombres
+    [Documentation]    Vérifier le calcul de la division
+    Go To    ${BASE_URL}
+    Input Text    id=a    10
+    Input Text    id=b    2
+    Click Button    xpath=//button[text()='÷']
+    Page Should Contain    Résultat : 5
+
+FT-07 Division par zéro
+    [Documentation]    Vérifier la gestion de la division par zéro
+    Go To    ${BASE_URL}
+    Input Text    id=a    10
+    Input Text    id=b    0
+    Click Button    xpath=//button[text()='÷']
+    Alert Should Be Present
+
+FT-08 Champs vides
+    [Documentation]    Vérifier le comportement si les champs sont vides
+    Go To    ${BASE_URL}
+    Click Button    xpath=//button[text()='+']
+    Alert Should Be Present
+
+*** Keywords ***
+Ouvrir le navigateur
+    Open Browser    ${BASE_URL}    ${BROWSER}
+    Maximize Browser Window
+
+Fermer le navigateur
+    Close Browser

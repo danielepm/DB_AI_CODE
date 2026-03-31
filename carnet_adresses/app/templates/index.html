@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carnet d'adresses</title>
+</head>
+
+<body>
+
+<h1>Carnet d'adresses</h1>
+
+<form id="contactForm">
+    <input type="text" placeholder="Nom" id="nom" required>
+    <input type="email" placeholder="Email" id="email" required>
+    <input type="text" placeholder="Téléphone" id="telephone" required>
+
+    <button type="submit">Ajouter</button>
+</form>
+
+<h2>Contacts</h2>
+
+<ul id="contacts"></ul>
+
+<script>
+async function loadContacts() {
+    const res = await fetch("contacts")
+    const data = await res.json()
+
+    const list = document.getElementById("contacts")
+    list.innerHTML = ""
+
+    data.forEach(c => {
+        const li = document.createElement("li")
+        li.innerHTML = `${c.nom} - ${c.email} - ${c.telephone}
+        <button onclick="deleteContact(${c.id})">Supprimer</button>`
+        list.appendChild(li)
+    })
+}
+
+async function deleteContact(id){
+    await fetch(`contacts/${id}`, {method:"DELETE"})
+    loadContacts()
+}
+
+document.getElementById("contactForm").addEventListener("submit", async e => {
+    e.preventDefault()
+
+    const contact = {
+        nom: document.getElementById("nom").value,
+        email: document.getElementById("email").value,
+        telephone: document.getElementById("telephone").value
+    }
+
+    await fetch("contacts", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(contact)
+    })
+
+    loadContacts()
+})
+
+loadContacts()
+</script>
+
+</body>
+</html>

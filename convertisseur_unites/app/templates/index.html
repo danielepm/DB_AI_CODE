@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convertisseur d’unités</title>
+    
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
+</head>
+<body>
+    <h1>Convertisseur d’unités</h1>
+
+    <form id="convertForm">
+        <input type="number" step="any" name="value" placeholder="Valeur" required>
+
+        <select name="category" id="category">
+            <option value="length">Longueur</option>
+            <option value="weight">Poids</option>
+            <option value="temperature">Température</option>
+        </select>
+
+        <input type="text" name="from_unit" placeholder="Unité source (ex: m, kg, C)" required>
+        <input type="text" name="to_unit" placeholder="Unité cible (ex: km, lb, F)" required>
+
+        <button type="submit">Convertir</button>
+    </form>
+
+    <h2 id="result"></h2>
+
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>

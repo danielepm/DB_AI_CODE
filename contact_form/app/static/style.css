@@ -1,0 +1,83 @@
+/* Reset simple */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style global */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Conteneur du formulaire */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Titre */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+}
+
+/* Inputs et textarea */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Focus */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+/* Bouton */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover bouton */
+button:hover {
+    background-color: #357abd;
+}
+
+/* Message succès */
+.success {
+    color: green;
+    margin-bottom: 15px;
+}
+
+/* Message erreur */
+.errors {
+    color: red;
+    margin-bottom: 15px;
+}

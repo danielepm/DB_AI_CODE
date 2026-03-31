@@ -1,0 +1,21 @@
+body {
+    font-family: Arial;
+    margin: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+input, button {
+    margin-top: 10px;
+    padding: 8px;
+}
+
+button {
+    background-color: #2c7be5;
+    color: white;
+    border: none;
+}

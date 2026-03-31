@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Simple</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mon Super Quiz Python</h1>
+        
+        {% if score is defined %}
+            <div class="result">
+                <h2>Votre Score : {{ score }} / {{ total }}</h2>
+                <a href="/">Recommencer</a>
+            </div>
+        {% else %}
+            <form action="submit" method="post">
+                {% for item in questions %}
+                <div class="question-block">
+                    <p><strong>{{ loop.index }}. {{ item.q }}</strong></p>
+                    {% for op in item.ops %}
+                        <label>
+                            <input type="radio" name="{{ item.id }}" value="{{ op }}" required> {{ op }}
+                        </label><br>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <button type="submit">Envoyer les réponses</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

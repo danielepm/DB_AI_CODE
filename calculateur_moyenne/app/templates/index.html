@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculateur de moyenne</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<h1>Calculateur de moyenne pondérée</h1>
+
+<form action="calculer" method="post">
+
+<h3>Note 1</h3>
+<input type="number" step="0.01" name="note1" required>
+<input type="number" step="0.01" name="coeff1" required>
+
+<h3>Note 2</h3>
+<input type="number" step="0.01" name="note2" required>
+<input type="number" step="0.01" name="coeff2" required>
+
+<h3>Note 3</h3>
+<input type="number" step="0.01" name="note3" required>
+<input type="number" step="0.01" name="coeff3" required>
+
+<br><br>
+
+<button type="submit">Calculer</button>
+
+</form>
+
+{% if resultat %}
+<h2>Moyenne : {{ resultat }}</h2>
+{% endif %}
+
+</body>
+</html>

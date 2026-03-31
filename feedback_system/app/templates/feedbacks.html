@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Feedbacks</h2>
+
+<ul>
+{% for fb in feedbacks %}
+<li>
+⭐ {{fb.rating}}/5
+<br>
+{{fb.comment}}
+</li>
+<br>
+{% endfor %}
+</ul>
+
+<a href="/feedback_system">Retour</a>
+
+{% endblock %}

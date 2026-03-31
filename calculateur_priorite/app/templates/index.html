@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculateur de Priorité</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Calculateur de Priorité</h1>
+    <form method="post">
+        <label>Urgence (1-10):</label>
+        <input type="number" name="urgence" min="1" max="10" value="{{ urgence or '' }}" required><br><br>
+        <label>Impact (1-10):</label>
+        <input type="number" name="impact" min="1" max="10" value="{{ impact or '' }}" required><br><br>
+        <button type="submit">Calculer</button>
+    </form>
+
+    {% if priority %}
+        <h2>Priorité: {{ priority }}</h2>
+    {% endif %}
+</body>
+</html>

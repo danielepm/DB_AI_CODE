@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vérificateur de mot de passe</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Vérificateur de mot de passe</h1>
+    <form method="post">
+        <input type="password" name="password" placeholder="Entrez votre mot de passe" required>
+        <button type="submit">Vérifier</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <h2>Résultat pour: {{ password }}</h2>
+        <ul>
+            <li>Longueur ≥ 8: {{ "✅" if result.longueur_min else "❌" }}</li>
+            <li>Majuscule: {{ "✅" if result.majuscule else "❌" }}</li>
+            <li>Minuscule: {{ "✅" if result.minuscule else "❌" }}</li>
+            <li>Chiffre: {{ "✅" if result.chiffre else "❌" }}</li>
+            <li>Caractère spécial: {{ "✅" if result.special else "❌" }}</li>
+        </ul>
+        <h3>Mot de passe valide: {{ "Oui ✅" if result.valid else "Non ❌" }}</h3>
+    </div>
+    {% endif %}
+</body>
+</html>
