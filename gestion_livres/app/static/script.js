@@ -1,6 +1,6 @@
 async function loadBooks() {
 
-    const res = await fetch("/books")
+    const res = await fetch("books")
     const books = await res.json()
 
     const list = document.getElementById("books")
@@ -30,7 +30,7 @@ async function addBook() {
     const titre = document.getElementById("titre").value
     const auteur = document.getElementById("auteur").value
 
-    await fetch("/books", {
+    await fetch("books", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({titre, auteur})
@@ -45,7 +45,7 @@ async function toggle(id, statut) {
     const newStatus =
         statut === "disponible" ? "emprunté" : "disponible"
 
-    await fetch(`/books/${id}?statut=${newStatus}`, {
+    await fetch(`books/${id}?statut=${newStatus}`, {
         method: "PUT"
     })
 

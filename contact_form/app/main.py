@@ -14,7 +14,7 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 async def form(request: Request):
-    return templates.TemplateResponse("form.html", {"request": request})
+    return templates.TemplateResponse(request, "form.html")
 
 
 @app.post("/submit", response_class=HTMLResponse)
@@ -26,19 +26,17 @@ async def submit(
 ):
     try:
         form = ContactForm(name=name, email=email, message=message)
-        return templates.TemplateResponse(
+        return templates.TemplateResponse(request,
             "form.html",
             {
-                "request": request,
                 "success": "Message envoyé avec succès !"
             }
         )
 
     except ValidationError as e:
-        return templates.TemplateResponse(
+        return templates.TemplateResponse(request,
             "form.html",
             {
-                "request": request,
                 "errors": e.errors()
             }
         )

@@ -35,10 +35,9 @@ def get_db():
 def home(request: Request, db: Session = Depends(get_db)):
     todos = crud.get_todos(db)
 
-    return templates.TemplateResponse(
+    return templates.TemplateResponse(request,
         "index.html",
         {
-            "request": request,
             "todos": todos
         }
     )

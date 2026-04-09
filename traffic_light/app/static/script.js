@@ -16,7 +16,7 @@ function updateUI(state) {
 // Fonction pour appeler l'API de transition
 async function changeLight() {
     try {
-        const response = await fetch('/next', { method: 'POST' });
+        const response = await fetch('next', { method: 'POST' });
         if (!response.ok) throw new Error('Erreur réseau');
         
         const data = await response.json();
@@ -28,7 +28,7 @@ async function changeLight() {
 
 // Optionnel : Récupérer l'état actuel au chargement de la page
 window.onload = async () => {
-    const response = await fetch('/status');
+    const response = await fetch('status');
     const data = await response.json();
     updateUI(data.current);
 };

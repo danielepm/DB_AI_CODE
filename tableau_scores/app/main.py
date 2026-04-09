@@ -5,7 +5,7 @@ from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 
 from .database import SessionLocal, engine
-from . import models, crud
+from . import models, crud, schemas
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -27,9 +27,9 @@ def get_db():
 @app.get("/")
 def read_scores(request: Request, db: Session = Depends(get_db)):
     scores = crud.get_scores(db)
-    return templates.TemplateResponse(
+    return templates.TemplateResponse(request,
         "index.html",
-        {"request": request, "scores": scores}
+        {"scores": scores}
     )
 
 
@@ -39,5 +39,5 @@ def add_score(
     points: int = Form(...),
     db: Session = Depends(get_db)
 ):
-    crud.create_score(db, {"player": player, "points": points})
-    return RedirectResponse(url="/", status_code=303) #{"message": "Score ajouté"}
+    crud.create_score(db, schemas.ScoreCreate(player= player, points= points))
+    return RedirectResponse(url="/tableau_scores", status_code=303) #{"message": "Score ajouté"}

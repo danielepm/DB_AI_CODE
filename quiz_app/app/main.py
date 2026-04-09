@@ -18,7 +18,7 @@ QUIZ_DATA = [
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "questions": QUIZ_DATA})
+    return templates.TemplateResponse(request, "index.html", {"questions": QUIZ_DATA})
 
 @app.post("/submit", response_class=HTMLResponse)
 async def submit_quiz(request: Request):
@@ -33,8 +33,7 @@ async def submit_quiz(request: Request):
             score += 1
         results.append({"q": item["q"], "correct": is_correct, "ans": item["ans"]})
 
-    return templates.TemplateResponse("index.html", {
-        "request": request, 
+    return templates.TemplateResponse(request, "index.html", {
         "score": score, 
         "total": len(QUIZ_DATA),
         "results": results

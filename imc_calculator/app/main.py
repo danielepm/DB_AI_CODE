@@ -14,17 +14,16 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 
 @app.post("/calculer", response_class=HTMLResponse)
 def calculer(request: Request, poids: float = Form(...), taille: float = Form(...)):
     imc, interpretation = calcul_imc(poids, taille)
 
-    return templates.TemplateResponse(
+    return templates.TemplateResponse(request,
         "index.html",
         {
-            "request": request,
             "imc": imc,
             "interpretation": interpretation
         }

@@ -1,6 +1,6 @@
 async function loadRdv() {
 
-    const response = await fetch('/rdv')
+    const response = await fetch('rdv')
     const data = await response.json()
 
     const list = document.getElementById("rdvList")
@@ -26,7 +26,7 @@ async function addRdv() {
     const heure = document.getElementById("heure").value
     const description = document.getElementById("description").value
 
-    await fetch("/rdv", {
+    await fetch("rdv", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -44,7 +44,7 @@ async function addRdv() {
 
 async function deleteRdv(id) {
 
-    await fetch(`/rdv/${id}`, {
+    await fetch(`rdv/${id}`, {
         method: "DELETE"
     })
 

@@ -3,8 +3,8 @@ from . import models, schemas
 
 def create_feedback(db: Session, feedback: schemas.FeedbackCreate):
     db_feedback = models.Feedback(
-        rating=feedback["rating"],
-        comment=feedback["comment"]
+        rating=feedback.rating,
+        comment=feedback.comment
     )
     db.add(db_feedback)
     db.commit()

@@ -8,7 +8,7 @@ async function addTask(){
         return
     }
 
-    await fetch("/add?title=" + encodeURIComponent(title), {
+    await fetch("add?title=" + encodeURIComponent(title), {
         method:"POST"
     })
 
@@ -17,7 +17,7 @@ async function addTask(){
 
 async function markDone(id){
 
-    await fetch("/done/" + id, {
+    await fetch("done/" + id, {
         method:"POST"
     })
 
@@ -26,7 +26,7 @@ async function markDone(id){
 
 async function deleteTask(id){
 
-    await fetch("/delete/" + id, {
+    await fetch("delete/" + id, {
         method:"DELETE"
     })
 

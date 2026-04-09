@@ -14,7 +14,7 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 
 @app.post("/simulate", response_class=HTMLResponse)
@@ -27,10 +27,9 @@ def simulate(
     
     mensualite = calcul_mensualite(montant, taux, duree)
 
-    return templates.TemplateResponse(
+    return templates.TemplateResponse(request,
         "index.html",
         {
-            "request": request,
             "mensualite": mensualite,
             "montant": montant,
             "taux": taux,

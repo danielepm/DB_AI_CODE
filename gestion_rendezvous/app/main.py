@@ -25,7 +25,7 @@ def get_db():
 
 @app.get("/")
 def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 
 @app.get("/rdv", response_model=list[schemas.RendezVous])

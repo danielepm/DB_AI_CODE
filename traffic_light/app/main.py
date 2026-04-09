@@ -21,7 +21,7 @@ TRANSITIONS = {
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "state": traffic_state["current"]})
+    return templates.TemplateResponse(request, "index.html", {"state": traffic_state["current"]})
 
 @app.post("/next")
 async def next_state():

@@ -14,10 +14,9 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-    return templates.TemplateResponse(
+    return templates.TemplateResponse(request, 
         "index.html",
         {
-            "request": request,
             "currencies": list(RATES.keys()),
             "result": None
         }
@@ -34,10 +33,9 @@ def convert_currency(
 
     result = convert(amount, from_currency, to_currency)
 
-    return templates.TemplateResponse(
+    return templates.TemplateResponse(request,
         "index.html",
         {
-            "request": request,
             "currencies": list(RATES.keys()),
             "result": result,
             "amount": amount,

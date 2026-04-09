@@ -41,156 +41,187 @@ services:
 
   calculatrice:
     build: ./calculatrice
+    container_name: calculatrice
     expose:
       - "8000"
 
   convertisseur_unites:
     build: ./convertisseur_unites
+    container_name: convertisseur_unites
     expose:
       - "8000"
 
   gestionnaire_contacts:
     build: ./gestionnaire_contacts
+    container_name: gestionnaire_contacts
     expose:
       - "8000"
 
   currency_converter:
     build: ./currency_converter
+    container_name: currency_converter
     expose:
       - "8000"
 
   to_do_list:
     build: ./to_do_list
+    container_name: to_do_list
     expose:
       - "8000"
 
   compteur_mots:
     build: ./compteur_mots
+    container_name: compteur_mots
     expose:
       - "8000"
 
   imc_calculator:
     build: ./imc_calculator
+    container_name: imc_calculator
     expose:
       - "8000"
 
   calculateur_moyenne:
     build: ./calculateur_moyenne
+    container_name: calculateur_moyenne
     expose:
       - "8000"
 
   simulateur_pret:
     build: ./simulateur_pret
+    container_name: simulateur_pret
     expose:
       - "8000"
 
   password_generator:
     build: ./password_generator
+    container_name: password_generator
     expose:
       - "8000"
 
   age_calculator:
     build: ./age_calculator
+    container_name: age_calculator
     expose:
       - "8000"
 
   calculateur_tva:
     build: ./calculateur_tva
+    container_name: calculateur_tva
     expose:
       - "8000"
 
   livraison_app:
     build: ./livraison_app
+    container_name: livraison_app
     expose:
       - "8000"
 
   calculateur_remise:
     build: ./calculateur_remise
+    container_name: calculateur_remise
     expose:
       - "8000"
 
   calorie_calculator:
     build: ./calorie_calculator
+    container_name: calorie_calculator
     expose:
       - "8000"
 
   simulateur_notes:
     build: ./simulateur_notes
+    container_name: simulateur_notes
     expose:
       - "8000"
 
   gestion_produits:
     build: ./gestion_produits
+    container_name: gestion_produits
     expose:
       - "8000"
 
   gestion_livres:
     build: ./gestion_livres
+    container_name: gestion_livres
     expose:
       - "8000"
 
   gestion_rendezvous:
     build: ./gestion_rendezvous
+    container_name: gestion_rendezvous
     expose:
       - "8000"
 
   gestion_tickets:
     build: ./gestion_tickets
+    container_name: gestion_tickets
     expose:
       - "8000"
 
   carnet_adresses:
     build: ./carnet_adresses
+    container_name: carnet_adresses
     expose:
       - "8000"
 
   quiz_app:
     build: ./quiz_app
+    container_name: quiz_app
     expose:
       - "8000"
 
   traffic_light:
     build: ./traffic_light
+    container_name: traffic_light
     expose:
       - "8000"
 
   password_checker:
     build: ./password_checker
+    container_name: password_checker
     expose:
       - "8000"
 
   calculateur_priorite:
     build: ./calculateur_priorite
+    container_name: calculateur_priorite
     expose:
       - "8000"
 
   systeme_notation:
     build: ./systeme_notation
+    container_name: systeme_notation
     expose:
       - "8000"
 
   contact_form:
     build: ./contact_form
+    container_name: contact_form
     expose:
       - "8000"
 
   recherche_simple:
     build: ./recherche_simple
+    container_name: recherche_simple
     expose:
       - "8000"
 
   feedback_system:
     build: ./feedback_system
+    container_name: feedback_system
     expose:
       - "8000"
 
   tableau_scores:
     build: ./tableau_scores
+    container_name: tableau_scores
     expose:
       - "8000"
 
   user_preferences:
     build: ./user_preferences
+    container_name: user_preferences
     expose:
       - "8000"
 

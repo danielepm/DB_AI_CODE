@@ -1,5 +1,5 @@
 async function loadTickets() {
-    const response = await fetch("/tickets")
+    const response = await fetch("tickets")
     const tickets = await response.json()
 
     const list = document.getElementById("tickets")
@@ -21,7 +21,7 @@ async function createTicket() {
     const title = document.getElementById("title").value
     const description = document.getElementById("description").value
 
-    await fetch("/tickets", {
+    await fetch("tickets", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({title, description})
@@ -32,7 +32,7 @@ async function createTicket() {
 
 async function closeTicket(id) {
 
-    await fetch(`/tickets/${id}/close`, {
+    await fetch(`tickets/${id}/close`, {
         method: "PUT"
     })
 

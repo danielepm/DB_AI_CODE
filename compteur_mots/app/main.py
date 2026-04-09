@@ -12,9 +12,9 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-    return templates.TemplateResponse(
+    return templates.TemplateResponse(request,
         "index.html",
-        {"request": request, "result": None}
+        {"result": None}
     )
 
 
@@ -23,10 +23,9 @@ def analyze(request: Request, text: str = Form(...)):
 
     result = analyze_text(text)
 
-    return templates.TemplateResponse(
+    return templates.TemplateResponse(request,
         "index.html",
         {
-            "request": request,
             "result": result,
             "text": text
         }

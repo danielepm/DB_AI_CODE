@@ -4,7 +4,7 @@ async function generate() {
     const uppercase = document.getElementById("uppercase").checked;
     const digits = document.getElementById("digits").checked;
 
-    const response = await fetch("/generate", {
+    const response = await fetch("generate", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

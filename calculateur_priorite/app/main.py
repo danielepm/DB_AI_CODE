@@ -20,12 +20,13 @@ def calculate_priority(urgence: int, impact: int) -> str:
 
 @app.get("/", response_class=HTMLResponse)
 async def read_form(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "priority": None})
+    return templates.TemplateResponse(request, "index.html", {"priority": None})
+    #return templates.TemplateResponse("index.html", {"request": request, "priority": None})
 
 @app.post("/", response_class=HTMLResponse)
 async def calculate(request: Request, urgence: int = Form(...), impact: int = Form(...)):
     priority = calculate_priority(urgence, impact)
-    return templates.TemplateResponse("index.html", {"request": request, "priority": priority, "urgence": urgence, "impact": impact})
+    return templates.TemplateResponse(request, "index.html", {"priority": priority, "urgence": urgence, "impact": impact})
 
 @app.post("/api/calculate", response_model=PriorityResponse)
 async def api_calculate(request: PriorityRequest):

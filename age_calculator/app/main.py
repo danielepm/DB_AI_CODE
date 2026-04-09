@@ -5,6 +5,7 @@ from fastapi.requests import Request
 from fastapi.staticfiles import StaticFiles
 from datetime import datetime
 from app.age import calculate_age
+import os
 
 app = FastAPI(root_path="/age_calculator")
 
@@ -15,7 +16,7 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 
 @app.post("/calculate")

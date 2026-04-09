@@ -7,7 +7,7 @@ document.getElementById("ageForm").addEventListener("submit", async function(e) 
     const formData = new FormData();
     formData.append("birthdate", birthdate);
 
-    const response = await fetch("/calculate", {
+    const response = await fetch("calculate", {
         method: "POST",
         body: formData
     });

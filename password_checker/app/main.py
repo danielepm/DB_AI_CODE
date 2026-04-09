@@ -11,9 +11,9 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "result": None})
+    return templates.TemplateResponse(request, "index.html", {"result": None})
 
 @app.post("/", response_class=HTMLResponse)
 async def verify_password(request: Request, password: str = Form(...)):
     result = check_password(password)
-    return templates.TemplateResponse("index.html", {"request": request, "result": result, "password": password})
+    return templates.TemplateResponse(request, "index.html", {"result": result, "password": password})

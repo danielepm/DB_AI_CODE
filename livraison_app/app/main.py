@@ -14,14 +14,13 @@ TARIFS_ZONE = {
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "zones": TARIFS_ZONE.keys()})
+    return templates.TemplateResponse(request, "index.html", {"zones": TARIFS_ZONE.keys()})
 
 @app.post("/calculer", response_class=HTMLResponse)
 async def calculer_frais(request: Request, poids: float = Form(...), zone: str = Form(...)):
     prix_base = TARIFS_ZONE.get(zone, 0)
     total = prix_base + (poids * 1.5)  # 1.5€ par kg supplémentaire
-    return templates.TemplateResponse("index.html", {
-        "request": request, 
+    return templates.TemplateResponse(request, "index.html", { 
         "resultat": f"{total:.2f} €",
         "zones": TARIFS_ZONE.keys()
     })

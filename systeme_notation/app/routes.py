@@ -10,7 +10,7 @@ templates = Jinja2Templates(directory="app/templates")
 
 @router.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 
 @router.post("/score", response_class=HTMLResponse)
@@ -18,10 +18,9 @@ async def calculate(request: Request, score: float = Form(...)):
 
     result = appreciation(score)
 
-    return templates.TemplateResponse(
+    return templates.TemplateResponse(request,
         "index.html",
         {
-            "request": request,
             "result": result,
             "score": score
         }

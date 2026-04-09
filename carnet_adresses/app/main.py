@@ -27,7 +27,7 @@ def get_db():
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request, db: Session = Depends(get_db)):
     contacts = crud.get_contacts(db)
-    return templates.TemplateResponse("index.html", {"request": request, "contacts": contacts})
+    return templates.TemplateResponse(request, "index.html", {"contacts": contacts})
 
 
 @app.post("/contacts")

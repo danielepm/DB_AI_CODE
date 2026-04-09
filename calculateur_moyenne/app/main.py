@@ -14,10 +14,11 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse(
-        "index.html",
-        {"request": request, "resultat": None}
-    )
+    return templates.TemplateResponse(request, "index.html",{"resultat": None})
+    #return templates.TemplateResponse(
+    #    "index.html",
+    #    {"request": request, "resultat": None}
+    #)
 
 
 @app.post("/calculer", response_class=HTMLResponse)
@@ -36,10 +37,8 @@ async def calculer(
 
     moyenne = calculer_moyenne(notes, coeffs)
 
-    return templates.TemplateResponse(
-        "index.html",
+    return templates.TemplateResponse(request,"index.html",
         {
-            "request": request,
             "resultat": moyenne
         }
     )

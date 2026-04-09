@@ -8,7 +8,7 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/")
 async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 @app.post("/calculate")
 async def calculate(
@@ -26,8 +26,7 @@ async def calculate(
         tva = amount - result
         label = "Prix HT"
 
-    return templates.TemplateResponse("index.html", {
-        "request": request,
+    return templates.TemplateResponse(request, "index.html", {
         "result": round(result, 2),
         "tva": round(tva, 2),
         "label": label,

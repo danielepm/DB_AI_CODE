@@ -8,7 +8,7 @@ async function calculate(operation) {
     }
 
     const response = await fetch(
-        `/api/calculate?a=${a}&b=${b}&operation=${operation}`
+        `api/calculate?a=${a}&b=${b}&operation=${operation}`
     );
 
     const data = await response.json();
