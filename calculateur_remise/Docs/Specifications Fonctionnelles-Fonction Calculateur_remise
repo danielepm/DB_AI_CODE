@@ -1,0 +1,19 @@
+Paramètres d’entrée :
+Prix_initial
+Valeur remise 
+Type_remise
+
+Calcul prix final et montant de la remise en fonction du type de remise :
+if type_remise == "pourcentage":
+        montant_economise = prix_initial * (valeur_remise / 100)
+    else:
+        montant_economise = valeur_remise
+
+    prix_final = max(0, prix_initial - montant_economise)
+
+Paramètres retournés  :
+resultat = arrondi de prix_final
+Economie =arrondi de  montant_economise 
+
+Règles de gestion
+- nombres entiers et décimaux 
