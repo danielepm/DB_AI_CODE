@@ -1,0 +1,19 @@
+Paramètres d’entrée :
+activity:  { "marche", "course","velo","natation", "yoga"}
+weight: entier
+duration: decimal
+
+Calcul des calories dépensées pendant une durée en fonction du poids et de l’activité :
+hours = duration_minutes / 60
+calories = met * weight * hours
+
+Paramètre retourné  cas succes:
+calories = arrondi de calories
+
+Paramètre retourné  cas error:
+None
+
+Règles de gestion
+- nombres entiers et décimaux 
+_ activity = liste définie d’activité
+-duration : nombre entier en minute
