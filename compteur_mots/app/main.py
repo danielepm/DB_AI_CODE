@@ -19,11 +19,12 @@ def home(request: Request):
 
 
 @app.post("/analyze", response_class=HTMLResponse)
-def analyze(request: Request, text: str = Form(...)):
+def analyze(request: Request, text: str = Form("")):
 
     result = analyze_text(text)
 
-    return templates.TemplateResponse(request,
+    return templates.TemplateResponse(
+        request,
         "index.html",
         {
             "result": result,

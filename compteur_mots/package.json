@@ -1,0 +1,17 @@
+{
+  "name": "compteur_mots",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^15.18.1"
+  },
+  "allowScripts": {
+    "cypress@15.18.1": true
+  }
+}
