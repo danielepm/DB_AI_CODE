@@ -1,0 +1,16 @@
+# Environnement virtuel Python
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Node.js
+node_modules/
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+
+# VS Code
+.vscode/

@@ -1,4 +1,10 @@
 def calcul_imc(poids: float, taille: float):
+    if taille <= 0:
+        raise ValueError("La taille doit être supérieure à 0")
+
+    if poids <= 0:
+        raise ValueError("Le poids doit être supérieur à 0")
+    
     imc = poids / (taille ** 2)
 
     if imc < 18.5:
@@ -14,4 +20,4 @@ def calcul_imc(poids: float, taille: float):
     else:
         interpretation = "Obésité morbide"
 
-    return round(imc, 2), interpretation
+    return round(imc, 1), interpretation
