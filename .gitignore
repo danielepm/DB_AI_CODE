@@ -1,0 +1,34 @@
+# Ignorer tout le dossier cypress
+cypress/
+
+# Mais garder tous les fichiers de test .cy.js
+!**/*.cy.js
+
+# Ignorer node_modules
+node_modules/
+
+# Ignorer les fichiers Python compilés
+__pycache__/
+
+# Ignorer package-lock.json
+package-lock.json
+# Ignorer les fichiers générés par docx2txt
+*.txt
+
+# Ignorer les fichiers Windows Zone.Identifier
+*:Zone.Identifier
+
+# Ignorer les dossiers Cypress générés automatiquement
+cypress/screenshots/
+cypress/videos/
+
+# Ignorer les fichiers logs
+*.log
+
+# Ignorer les fichiers système
+.DS_Store
+Thumbs.db
+
+# Ignorer les dossiers IDE
+.vscode/
+.idea/
