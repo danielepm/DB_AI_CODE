@@ -1,0 +1,15 @@
+# Environnement virtuel Python
+.venv/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Fichiers Cypress générés
+cypress/screenshots/
+cypress/videos/
+
+# Fichiers système / éditeur
+.vscode/
+.DS_Store

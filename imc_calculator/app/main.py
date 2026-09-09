@@ -18,13 +18,35 @@ def home(request: Request):
 
 
 @app.post("/calculer", response_class=HTMLResponse)
-def calculer(request: Request, poids: float = Form(...), taille: float = Form(...)):
-    imc, interpretation = calcul_imc(poids, taille)
+def calculer(request: Request, poids: float = Form(...), taille: float = Form(...)
+):
+    try:
+        imc, interpretation = calcul_imc(poids, taille)
 
-    return templates.TemplateResponse(request,
+        # Ajouter une couleur en fonction de l'interprétation
+
+        if interpretation == "Corpulence normale":
+            couleur = "green"
+        elif interpretation == "Surpoids":
+            couleur = "orange"
+        elif "Obésité" in interpretation:
+            couleur = "red"
+        else:
+            couleur = "blue"
+
+        return templates.TemplateResponse(request,
         "index.html",
         {
             "imc": imc,
-            "interpretation": interpretation
+            "interpretation": interpretation,
+            "couleur": couleur
         }
     )
+    
+    except ValueError as e:
+        return templates.TemplateResponse(request,
+            "index.html",
+            {
+                "error": str(e)
+            }
+        )

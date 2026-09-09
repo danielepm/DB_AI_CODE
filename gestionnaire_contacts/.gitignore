@@ -1,0 +1,15 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+
+# Node
+node_modules/
+
+# OS / éditeurs
+.DS_Store
+.vscode/

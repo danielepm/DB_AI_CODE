@@ -10,7 +10,7 @@
 
 <form action="convert" method="post">
 
-    <input type="number" step="0.01" name="amount" placeholder="Montant" required>
+    <input id="amount" type="number" step="0.01" name="amount" placeholder="Montant" required>
 
     <select name="from_currency">
         {% for c in currencies %}
@@ -30,8 +30,10 @@
 
 </form>
 
-{% if result %}
-<h2>Résultat : {{result}} {{to_currency}}</h2>
+{% if result is not none %}
+<h2 id="result">
+    Résultat : {{result}} {{to_currency}}
+</h2>
 {% endif %}
 
 </body>

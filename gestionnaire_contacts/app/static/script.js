@@ -1,5 +1,5 @@
 async function loadContacts() {
-    const res = await fetch("contacts");
+    const res = await fetch("/contacts");
     const contacts = await res.json();
 
     const list = document.getElementById("contacts");

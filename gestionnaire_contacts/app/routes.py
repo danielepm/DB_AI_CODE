@@ -24,3 +24,9 @@ def delete_contact(contact_id: int):
     contacts = [c for c in contacts if c["id"] != contact_id]
     write_contacts(contacts)
     return {"message": "Contact supprimé"}
+
+
+@router.delete("/test/contacts")
+def clear_test_contacts():
+    write_contacts([])
+    return {"message": "Contacts de test supprimés"}
